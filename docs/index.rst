@@ -17,13 +17,13 @@
 .. ===============LICENSE_END=========================================================
 
 ========================
-python-dcae-model-runner
+Acumos DCAE Model Runner
 ========================
 
 .. toctree::
        :maxdepth: 2
 
-       README
-       tutorial/index
        release-notes
+       README
        contributing
+       tutorial/index
