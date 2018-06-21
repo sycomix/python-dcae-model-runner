@@ -8,8 +8,8 @@ ADD ./example-model /app/example-model
 ADD ./requirements.txt /app
 ADD ./packages /app/packages
 
-RUN pip install -r /app/requirements.txt --find-links /app/packages && \
-    pip install acumos_dcae_model_runner --find-links /app/packages --process-dependency-links
+RUN pip install -r /app/requirements.txt && \
+    pip install acumos_dcae_model_runner 
 
 ENV DCAEPORT=10000
 EXPOSE $DCAEPORT
