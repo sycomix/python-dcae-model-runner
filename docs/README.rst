@@ -37,7 +37,8 @@ that can be used to instantiate the model runner. See the tutorial for more info
 The ``acumos_dcae_model_runner`` package should be installed in the docker image
 that is ultimately on-boarded into DCAE. The model runner CLI utility should be
 the entry point of that Docker image, as shown in the Dockerfile provided
-in ``example/`` directory in the root of the `Acumos DCAE Model Runner repository <https://gerrit.acumos.org/r/gitweb?p=python-dcae-model-runner.git;a=summary>`__..
+in ``example/`` directory in the root of the `Acumos DCAE Model Runner repository
+<https://gerrit.acumos.org/r/gitweb?p=python-dcae-model-runner.git;a=summary>`__.
 
 Installation
 ============
@@ -47,3 +48,9 @@ The ``acumos_dcae_model_runner`` package can be installed with pip like so:
 .. code:: bash
 
     pip install acumos_dcae_model_runner
+
+**Note**: installing ``acumos_dcae_model_runner`` will also install the latest version
+of `dcaeapplib <https://pypi.org/project/dcaeapplib/>`__, which is only compatible
+with DCAE Dublin or later. To use ``acumos_dcae_model_runner`` with earlier versions
+of DCAE, be sure to pin or bound the version of ``dcaeapplib`` appropriately. Consult
+the DCAE documentation for more information.
