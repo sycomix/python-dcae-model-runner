@@ -64,8 +64,8 @@ class ModelMethod(object):
 
     def __init__(self, name, method, get_data, send_data, config, timeout):
         self.name = name
-        self._sub_key = "{}_subscriber".format(name)
-        self._pub_key = "{}_publisher".format(name)
+        self._sub_key = f"{name}_subscriber"
+        self._pub_key = f"{name}_publisher"
         self._from_json = method.from_json
         self._get_data = get_data
         self._send_data = send_data
@@ -95,7 +95,7 @@ def run_method(method, event):
         try:
             method.process()
         except Exception as e:
-            logger.error("Process failure: {}".format(e))
+            logger.error(f"Process failure: {e}")
     logger.info('Exitting process loop')
 
 
@@ -122,8 +122,10 @@ class ModelRunner(object):
         if self._threads:
             raise ModelRunnerError('ModelRunner.start has already been invoked')
         self.event.set()
-        self._threads = tuple(Thread(target=run_method, args=(m, self.event), name="Model.{}".format(m.name))
-                              for m in self._methods)
+        self._threads = tuple(
+            Thread(target=run_method, args=(m, self.event), name=f"Model.{m.name}")
+            for m in self._methods
+        )
         for t in self._threads:
             t.start()
 
